@@ -1,156 +1,154 @@
 * {
-        box-sizing: border-box;
-        }
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-                font-family: Arial, sans-serif;
-                }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
 
-                header {
-                    background-color: #333;
-                        color: #fff;
-                            display: flex;
-                                justify-content: space-between;
-                                    align-items: center;
-                                        padding: 10px;
-                                        }
+header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
 
-                                        header h1 {
-                                            margin: 0;
-                                                font-size: 1.5rem;
-                                                }
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
 
-                                                #add-task-btn {
-                                                    background-color: #4CAF50;
-                                                        color: #fff;
-                                                            border: none;
-                                                                font-size: 1.2rem;
-                                                                    padding: 10px;
-                                                                        border-radius: 50%;
-                                                                            cursor: pointer;
-                                                                            }
+#add-task-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
 
-                                                                            main {
-                                                                                padding: 10px;
-                                                                                }
+main {
+    padding: 10px;
+}
 
-                                                                                .task-form-container {
-                                                                                    display: none;
-                                                                                    }
+.task-form-container {
+    display: none;
+}
 
-                                                                                    .task-form-container.show {
-                                                                                        display: block;
-                                                                                        }
+.task-form-container.show {
+    display: block;
+}
 
-                                                                                        .task-form-container form {
-                                                                                            display: flex;
-                                                                                                flex-direction: column;
-                                                                                                }
+.task-form-container form {
+    display: flex;
+    flex-direction: column;
+}
 
-                                                                                                .task-form-container label {
-                                                                                                    font-size: 1.2rem;
-                                                                                                        margin-top: 10px;
-                                                                                                        }
+.task-form-container label {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
 
-                                                                                                        .task-form-container input,
-                                                                                                        .task-form-container textarea {
-                                                                                                            font-size: 1rem;
-                                                                                                                padding: 5px;
-                                                                                                                    margin-top: 5px;
-                                                                                                                        border: none;
-                                                                                                                            border-radius: 5px;
-                                                                                                                            }
+.task-form-container input,
+.task-form-container textarea {
+    font-size: 1rem;
+    padding: 5px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+}
 
-                                                                                                                            .task-form-container .form-buttons {
-                                                                                                                                display: flex;
-                                                                                                                                    justify-content: space-between;
-                                                                                                                                        margin-top: 10px;
-                                                                                                                                        }
+.task-form-container .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
 
-                                                                                                                                        .task-form-container .submit-btn,
-                                                                                                                                        .task-form-container .cancel-btn {
-                                                                                                                                            font-size: 1rem;
-                                                                                                                                                padding: 5px 10px;
-                                                                                                                                                    border: none;
-                                                                                                                                                        border-radius: 5px;
-                                                                                                                                                            cursor: pointer;
-                                                                                                                                                            }
+.task-form-container .submit-btn,
+.task-form-container .cancel-btn {
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-                                                                                                                                                            .task-form-container .submit-btn {
-                                                                                                                                                                background-color: #4CAF50;
-                                                                                                                                                                    color: #fff;
-                                                                                                                                                                    }
+.task-form-container .submit-btn {
+    background-color: #4CAF50;
+    color: #fff;
+}
 
-                                                                                                                                                                    .task-form-container .cancel-btn {
-                                                                                                                                                                        background-color: #f44336;
-                                                                                                                                                                            color: #fff;
-                                                                                                                                                                            }
+.task-form-container .cancel-btn {
+    background-color: #f44336;
+    color: #fff;
+}
 
-                                                                                                                                                                            .task-list-container {
-                                                                                                                                                                                margin-top: 20px;
-                                                                                                                                                                                }
+.task-list-container {
+    margin-top: 20px;
+}
 
-                                                                                                                                                                                .task-list-container h2 {
-                                                                                                                                                                                    font-size: 1.5rem;
-                                                                                                                                                                                        margin-top: 0;
-                                                                                                                                                                                        }
+.task-list-container h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+}
 
-                                                                                                                                                                                        .task {
-                                                                                                                                                                                            display: flex;
-                                                                                                                                                                                                align-items: center;
-                                                                                                                                                                                                    margin-top: 10px;
-                                                                                                                                                                                                    }
+.task {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
 
-                                                                                                                                                                                                    .task-checkbox {
-                                                                                                                                                                                                        margin-right: 10px;
-                                                                                                                                                                                                        }
+.task-checkbox {
+    margin-right: 10px;
+}
 
-                                                                                                                                                                                                        .task-title {
-                                                                                                                                                                                                            font-size: 1.2rem;
-                                                                                                                                                                                                                font-weight: bold;
-                                                                                                                                                                                                                    margin-bottom: 5px;
-                                                                                                                                                                                                                        display: block;
-                                                                                                                                                                                                                        }
+.task-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
 
-                                                                                                                                                                                                                        .task-date {
-                                                                                                                                                                                                                            font-size: 1rem;
-                                                                                                                                                                                                                                margin-right: 10px;
-                                                                                                                                                                                                                                }
+.task-date {
+    font-size: 1rem;
+    margin-right: 10px;
+}
 
-                                                                                                                                                                                                                                .task-description {
-                                                                                                                                                                                                                                    font-size: 1rem;
-                                                                                                                                                                                                                                        margin-top: 5px;
-                                                                                                                                                                                                                                            display: block;
-                                                                                                                                                                                                                                                white-space: pre-wrap;
-                                                                                                                                                                                                                                                }
+.task-description {
+    font-size: 1rem;
+    margin-top: 5px;
+    display: block;
+    white-space: pre-wrap;
+}
 
-                                                                                                                                                                                                                                                .task-actions {
-                                                                                                                                                                                                                                                    margin-left: auto;
-                                                                                                                                                                                                                                                    }
+.task-actions {
+    margin-left: auto;
+}
 
-                                                                                                                                                                                                                                                    .edit-task-btn,
-                                                                                                                                                                                                                                                    .delete-task-btn {
-                                                                                                                                                                                                                                                        font-size: 1rem;
-                                                                                                                                                                                                                                                            padding: 5px 10px;
-                                                                                                                                                                                                                                                                border: none;
-                                                                                                                                                                                                                                                                    border-radius: 5px;
-                                                                                                                                                                                                                                                                        cursor: pointer;
-                                                                                                                                                                                                                                                                        }
+.edit-task-btn,
+.delete-task-btn {
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-                                                                                                                                                                                                                                                                        .edit-task-btn {
-                                                                                                                                                                                                                                                                            background-color: #2196F3;
-                                                                                                                                                                                                                                                                                color: #fff;
-                                                                                                                                                                                                                                                                                    margin-right: 5px;
-                                                                                                                                                                                                                                                                                    }
+.edit-task-btn {
+    background-color: #2196F3;
+    color: #fff;
+    margin-right: 5px;
+}
 
-                                                                                                                                                                                                                                                                                    .delete-task-btn {
-                                                                                                                                                                                                                                                                                        background-color: #f44336;
-                                                                                                                                                                                                                                                                                            color: #fff;
-                                                                                                                                                                                                                                                                                            }
+.delete-task-btn {
+    background-color: #f44336;
+    color: #fff;
+}
 
-                                                                                                                                                                                                                                                                                            .completed {
-                                                                                                                                                                                                                                                                                                text-decoration: line-through;
-                                                                                                                                                                                                                                                                                                }
-
-
+.completed {
+    text-decoration: line-through;
+}
