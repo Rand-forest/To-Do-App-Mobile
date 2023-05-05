@@ -1,20 +1,19 @@
+/* Main */
+
+let tasksContainer = document.getElementById("tasks-container");
+let formContainer = document.getElementById("form-container");
+let taskForm = document.getElementById("task-form");
+
 let data = JSON.parse(localStorage.getItem("data")) || [];
 
-let taskList = document.getElementById("task-list");
-let taskForm = document.getElementById("task-form");
-let taskTitleInput = document.getElementById("task-title-input");
-let taskDateInput = document.getElementById("task-date-input");
-let taskDescriptionInput = document.getElementById("task-description-input");
-
 let showForm = () => {
-    taskForm.classList.add("show");
+    formContainer.style.display = "block";
 };
 
 let hideForm = () => {
-    taskForm.classList.remove("show");
-    taskTitleInput.value = "";
-    taskDateInput.value = "";
-    taskDescriptionInput.value = "";
+    formContainer.style.display = "none";
+    taskForm.reset();
+    taskForm.removeAttribute("data-index");
 };
 
 let createTaskElement = (task, index) => {
@@ -22,10 +21,11 @@ let createTaskElement = (task, index) => {
     taskElement.classList.add("task");
     taskElement.innerHTML = `
         <input type="checkbox" class="task-checkbox" id="task-checkbox-${index}" ${task.completed ? "checked" : ""}>
-        <label for="task-checkbox-${index}" class="task-title ${task.completed ? "completed" : ""}">${task.title.charAt(0).toUpperCase() + task.title.slice(1)}</label>
-        <br>
-        <span class="task-date">${task.date}</span>
-        <p class="task-description">${task.description.charAt(0).toUpperCase() + task.description.slice(1)}</p>
+        <div class="task-details">
+            <label for="task-checkbox-${index}" class="task-title ${task.completed ? "completed" : ""}">${task.title.charAt(0).toUpperCase() + task.title.slice(1)}</label>
+            <span class="task-date">${task.date}</span>
+            <p class="task-description">${task.description.charAt(0).toUpperCase() + task.description.slice(1)}</p>
+        </div>
         <div class="task-actions">
             <button class="edit-task-btn" onclick="editTask(${index})"><i class="fas fa-edit"></i></button>
             <button class="delete-task-btn" onclick="deleteTask(${index})"><i class="fas fa-trash-alt"></i></button>
@@ -40,45 +40,64 @@ let createTaskElement = (task, index) => {
     return taskElement;
 };
 
-let renderTaskList = () => {
-    taskList.innerHTML = "";
+let createTasks = () => {
+    tasksContainer.innerHTML = "";
     data.forEach((task, index) => {
         let taskElement = createTaskElement(task, index);
-        taskList.appendChild(taskElement);
+        tasksContainer.appendChild(taskElement);
     });
 };
 
-let addTask = (event) => {
-    event.preventDefault();
-    let task = {
-        title: taskTitleInput.value,
-        date: taskDateInput.value,
-        description: taskDescriptionInput.value,
-        completed: false
-    };
-    data.push(task);
+let addTask = (title, date, description) => {
+    // Capitalize the first letter of the task title
+    title = title.charAt(0).toUpperCase() + title.slice(1);
+    // Capitalize the first letter of the task description
+    description = description.charAt(0).toUpperCase() + description.slice(1);
+    
+    let index = taskForm.dataset.index; // get the index of the task being edited
+    if (index) {
+        // update the task in the data array
+        data[index].title = title;
+        data[index].date = date;
+        data[index].description = description;
+        taskForm.removeAttribute("data-index"); // clear the index data attribute
+    } else {
+        // add a new task to the data array
+        let task = {
+            title: title,
+            date: date,
+            description: description,
+            completed: false
+        };
+        data.push(task);
+    }
     localStorage.setItem("data", JSON.stringify(data));
+    createTasks();
     hideForm();
-    renderTaskList();
 };
 
 let editTask = (index) => {
     let task = data[index];
-    taskTitleInput.value = task.title;
-    taskDateInput.value = task.date;
-    taskDescriptionInput.value = task.description;
-    data.splice(index, 1);
-    localStorage.setItem("data", JSON.stringify(data));
-    hideForm();
-    renderTaskList();
+    taskForm.elements["task-title"].value = task.title;
+    taskForm.elements["task-date"].value = task.date;
+    taskForm.elements["task-description"].value = task.description;
+    taskForm.dataset.index = index; // add index as a data attribute to the form
+    showForm();
 };
 
 let deleteTask = (index) => {
     data.splice(index, 1);
     localStorage.setItem("data", JSON.stringify(data));
-    renderTaskList();
+    createTasks();
 };
 
-taskForm.addEventListener("submit", addTask);
+taskForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let title = taskForm.elements["task-title"].value;
+    let date = taskForm.elements["task-date"].value;
+    let description = taskForm.elements["task-description"].value;
+    addTask(title, date, description);
+    hideForm();
+});
 
-renderTaskList();
+createTasks();
