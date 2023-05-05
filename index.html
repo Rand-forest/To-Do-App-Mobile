@@ -1,35 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do App</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <title>Task Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>Task Manager</h1>
-        <button id="add-task-btn" onclick="showForm()"><i class="fas fa-plus"></i></button>
-    </header>
-    <main>
-        <div class="task-form-container">
-            <form id="task-form">
-                <label for="task-title-input">Title:</label>
-                <input type="text" id="task-title-input" required>
-                <label for="task-date-input">Date:</label>
-                <input type="date" id="task-date-input" required>
-                <label for="task-description-input">Description:</label>
-                <textarea id="task-description-input" rows="4"></textarea>
-                <div class="form-buttons">
-                    <button type="submit" class="submit-btn">Add Task</button>
-                    <button type="button" class="cancel-btn" onclick="hideForm()">Cancel</button>
-                </div>
+    <div class="app">
+        <h1 class="app-title">To Do App</h1>
+        <button class="add-task-btn" onclick="showForm()">Add New Task</button>
+        <div class="tasks-container" id="tasks-container"></div>
+        <div class="form-container" id="form-container">
+            <form class="task-form" id="task-form">
+                <h2 class="form-title">Add New Task</h2>
+                <label for="task-title">Task Title</label>
+                <input type="text" id="task-title" name="task-title" required>
+                <label for="task-date">Due Date</label>
+                <input type="date" id="task-date" name="task-date">
+                <label for="task-description">Description</label>
+                <textarea id="task-description" name="task-description" rows="3"></textarea>
+                <button type="submit" class="submit-btn">Add Task</button>
+				<button type="button" class="cancel-btn" onclick="hideForm()">Cancel</button>
             </form>
         </div>
-        <div class="task-list-container">
-            <h2>Task List</h2>
-            <div id="task-list"></div>
-        </div>
-    </main>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
